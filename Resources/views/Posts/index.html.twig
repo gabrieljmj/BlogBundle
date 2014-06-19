@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+		<title>My Blog!</title>
+
+		{% stylesheets
+		    '@BlogBundle/Resources/public/css/main.css'
+		%}
+    	<link href="{{ asset_url }}" rel="stylesheet" media="screen" />
+		{% endstylesheets %}
+	</head>
+{% block body %}
+	<body>
+		<h1>Posts</h1>
+	{% for flashMessage in app.session.flashbag.get('notice') %}
+		<div class="posts-not-found">
+			{{ flashMessage }}
+		</div>
+	{% endfor %}
+	{% if postsTotal > 0 %}
+		<div class="posts">
+			{% for post in posts %}
+			<ul>
+				<li><a href="read/{{ post.getId }}">{{ post.getTitle }}</a></li>
+			</ul>
+			{% endfor %}
+		</div>
+	{% endif %}
+	</body>
+{% endblock %}

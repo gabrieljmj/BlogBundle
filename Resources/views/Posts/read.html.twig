@@ -1,0 +1,9 @@
+{% for flashMessage in app.session.flashbag.get('post_not_found') %}
+{{ flashMessage }}
+{% endfor %}
+{% if postExists %}
+	<h1>{{ post.getTitle }}</h1>
+	<h5>{{ post.getCreatedAt.format('d/m/Y') }}</h5>
+	{{ post.getText }}
+	{{ form(commentForm) }}
+{% endif %}

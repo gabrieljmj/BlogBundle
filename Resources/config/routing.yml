@@ -1,0 +1,10 @@
+blog_home:
+    pattern:  /
+    defaults: { _controller: BlogBundle:Posts:index }
+blog_readpost:
+    pattern:  read/{id}
+    defaults: { _controller: BlogBundle:Posts:read }
+blog_comment:
+    pattern:  comment
+    defaults: { _controller: BlogBundle:Comments:create }
+    methods:  [POST]
